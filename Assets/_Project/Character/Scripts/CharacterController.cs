@@ -8,7 +8,7 @@ namespace _Project.Character.Scripts
 {
     public class CharacterController : MonoBehaviour, IVisible
     {
-        private const string EscapeTag = "Escape";
+        public event Action OnDeath;
         
         [SerializeField] private CameraController cameraController;
         [SerializeField] private Movement movement;
@@ -31,13 +31,8 @@ namespace _Project.Character.Scripts
         {
             if (other.TryGetComponent<Enemy>(out var enemy))
             {
-                Debug.Log("Поражение");
+                OnDeath?.Invoke();
                 return;
-            }
-
-            if (other.CompareTag(EscapeTag))
-            {
-                Debug.Log("Победа");
             }
         }
 

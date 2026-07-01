@@ -459,7 +459,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.5
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -3381,7 +3381,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.5
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -4607,14 +4607,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 966014048}
+  - component: {fileID: 966014050}
   - component: {fileID: 966014049}
   m_Layer: 0
-  m_Name: ExitTriggerZone
+  m_Name: EscapeZone
   m_TagString: Escape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &966014048
 Transform:
   m_ObjectHideFlags: 0
@@ -4651,6 +4652,66 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.275113, y: 4.162994, z: 2.4252167}
   m_Center: {x: -0.16444492, y: 2.105574, z: -0.71260834}
+--- !u!114 &966014050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966014047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a75eac509384b008711aa42a275b0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Game.Scripts.EscapeZone
+--- !u!1 &981138178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 981138180}
+  - component: {fileID: 981138179}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &981138179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981138178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52065b99517407ea680e74b08bdca36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Project.Game.Scripts.GameManager
+  characterController: {fileID: 762860257}
+  escapeZone: {fileID: 966014050}
+  victoryWindow: {fileID: 0}
+  failWindowWindow: {fileID: 0}
+--- !u!4 &981138180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981138178}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &981619862
 GameObject:
   m_ObjectHideFlags: 0
@@ -9945,6 +10006,7 @@ SceneRoots:
   - {fileID: 887357731}
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 981138180}
   - {fileID: 745711947}
   - {fileID: 762860255}
   - {fileID: 1859431800}

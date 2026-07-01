@@ -14,6 +14,7 @@ namespace _Project.UI.Scripts
         
         public override void Initialize()
         {
+            diamondsCount.text = _collectablesCounter.CollectablesCount.ToString();
             _collectablesCounter.OnCollectablesChanged += UpdateView;
         }
 

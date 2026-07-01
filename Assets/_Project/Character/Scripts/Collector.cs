@@ -1,11 +1,12 @@
 ﻿using _Project.Collectables.Scripts;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Character.Scripts
 {
     public class Collector : MonoBehaviour
     {
-        public int CollectablesCount { get; private set; }
+        [Inject] private CollectablesCounter _collectablesCounter;
         
         private void OnTriggerEnter(Collider other)
         {
@@ -13,7 +14,7 @@ namespace _Project.Character.Scripts
             {
                 collectable.Collect();
                 
-                CollectablesCount++;
+                _collectablesCounter.IncCollectablesCount();
             }
         }
     }

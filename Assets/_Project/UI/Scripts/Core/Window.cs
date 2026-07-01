@@ -16,6 +16,7 @@ namespace _Project.UI.Scripts.Core
 
         public virtual void Hide()
         {
+            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             gameObject.SetActive(false);
         }

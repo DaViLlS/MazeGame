@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6649678c6094ac1a11ce418a0ffade1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Project.Installers.ConfigsInstaller
+  gameConfig: {fileID: 11400000, guid: 81464e24d82750647a15a5c4f78efb64, type: 2}
   characterConfig: {fileID: 11400000, guid: 8126ecf15035b234ab3ffc045599c064, type: 2}
 --- !u!114 &-4296752013072830615
 MonoBehaviour:

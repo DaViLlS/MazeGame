@@ -45,21 +45,12 @@ namespace _Project.Game.Scripts
         private void OpenFailWindow()
         {
             failWindow.Show();
-            
-            PauseGame();
         }
 
         private void OpenVictoryWindow()
         {
             escapeZone.OnEscaped -= OpenVictoryWindow;
             victoryWindow.Show();
-            
-            PauseGame();
-        }
-
-        private void PauseGame()
-        {
-            Time.timeScale = 0;
         }
         
         private void RestartGame()

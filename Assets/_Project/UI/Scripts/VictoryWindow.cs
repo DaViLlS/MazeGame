@@ -26,18 +26,17 @@ namespace _Project.UI.Scripts
         
         public override void Dispose()
         {
-            restartButton.onClick.RemoveAllListeners();
+            
         }
 
         public override void Show()
         {
-            restartButton.onClick.AddListener(ClickRestart);
             diamondsCount.text = _collectablesCounter.CollectablesCount + "/" + _gameConfig.DiamondsToCompleteLevel;
             
             base.Show();
         }
         
-        private void ClickRestart()
+        public void ClickRestart()
         {
             OnRestartClicked?.Invoke();
         }

@@ -1,4 +1,5 @@
 ﻿using _Project.Collectables.Scripts;
+using _Project.Game.Scripts;
 using _Project.UI.Scripts.Core;
 using TMPro;
 using UnityEngine;
@@ -8,13 +9,15 @@ namespace _Project.UI.Scripts
 {
     public class DiamondsCounter : HudElement
     {
+        [Inject] private GameConfig _gameConfig;
         [Inject] private CollectablesCounter _collectablesCounter;
         
         [SerializeField] private TMP_Text diamondsCount;
         
         public override void Initialize()
         {
-            diamondsCount.text = _collectablesCounter.CollectablesCount.ToString();
+            diamondsCount.text = _collectablesCounter.CollectablesCount + "/" + _gameConfig.DiamondsToCompleteLevel;
+            
             _collectablesCounter.OnCollectablesChanged += UpdateView;
         }
 
@@ -25,7 +28,7 @@ namespace _Project.UI.Scripts
         
         private void UpdateView()
         {
-            diamondsCount.text = _collectablesCounter.CollectablesCount.ToString();
+            diamondsCount.text = _collectablesCounter.CollectablesCount + "/" + _gameConfig.DiamondsToCompleteLevel;
         }
     }
 }

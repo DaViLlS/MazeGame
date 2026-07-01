@@ -19,6 +19,11 @@ namespace _Project.Character.Scripts
 
         public void Initialize()
         {
+            if (rb == null)
+            {
+                rb = GetComponent<Rigidbody>();
+            }
+            
             _isGrounded = true;
             _currentSpeed = _characterConfig.WalkSpeed;
 
@@ -32,6 +37,8 @@ namespace _Project.Character.Scripts
 
         public void Dispose()
         {
+            _isInitialized = false;
+            
             _inputHandler.OnSprintPerformed -= MakeSprint;
             _inputHandler.OnSprintCancelled -= MakeWalk;
             
@@ -65,6 +72,9 @@ namespace _Project.Character.Scripts
         
         private void Jump()
         {
+            if (!_isGrounded)
+                return;
+            
             _isGrounded = false;
             rb.AddForce(Vector3.up * _characterConfig.JumpForce, ForceMode.Impulse);
         }

@@ -2,7 +2,7 @@
 
 namespace _Project.Character.Scripts.Data
 {
-    [CreateAssetMenu(fileName = "CharacterConfig", menuName = "ScriptableObjects/CharacterConfig")]
+    [CreateAssetMenu(fileName = "CharacterConfig", menuName = "Character/CharacterConfig")]
     public class CharacterConfig : ScriptableObject
     {
         [SerializeField] private float walkSpeed;

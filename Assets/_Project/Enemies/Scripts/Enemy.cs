@@ -23,11 +23,13 @@ namespace _Project.Enemies.Scripts
             
             enemyVision.Initialize(character);
             enemyVision.OnCharacterDetected += StartChasingCharacter;
+            enemyVision.OnCharacterLost += StopChasingCharacter;
         }
 
         private void OnDestroy()
         {
             enemyVision.OnCharacterDetected -= StartChasingCharacter;
+            enemyVision.OnCharacterLost -= StopChasingCharacter;
         }
 
         private void Update()
@@ -71,6 +73,11 @@ namespace _Project.Enemies.Scripts
         private void StartChasingCharacter()
         {
             _characterDetected = true;
+        }
+        
+        private void StopChasingCharacter()
+        {
+            _characterDetected = false;
         }
     }
 }

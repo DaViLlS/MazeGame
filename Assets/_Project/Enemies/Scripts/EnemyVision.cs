@@ -8,6 +8,7 @@ namespace _Project.Enemies.Scripts
     public class EnemyVision : MonoBehaviour
     {
         public event Action OnCharacterDetected;
+        public event Action OnCharacterLost;
         
         [SerializeField] private Transform currentEyes;
         [SerializeField] private float visibleAngle;
@@ -16,6 +17,9 @@ namespace _Project.Enemies.Scripts
 
         private bool _isInitialized;
         private CharacterController _character;
+
+        private bool _characterDetected;
+        private bool _characterLost;
 
         public void Initialize(CharacterController character)
         {
@@ -29,9 +33,17 @@ namespace _Project.Enemies.Scripts
             if (!_isInitialized)
                 return;
             
-            if (IsCharacterVisible())
+            if (IsCharacterVisible() && !_characterDetected)
             {
+                _characterDetected = true;
+                _characterLost = false;
                 OnCharacterDetected?.Invoke();
+            }
+            else if (!_characterLost)
+            {
+                _characterDetected = false;
+                _characterLost = true;
+                OnCharacterLost?.Invoke();
             }
         }
         
